@@ -1,0 +1,119 @@
+Features: 
+	Authentication
+	Tests
+	Answers
+	Quests
+
+/ => info
+/register == Post => Register user to db
+/login == Post => Login user with data
+/refreshtoken == Post => Give refreshed accesstoken
+
+/test == Get => Get all tests		Returns Minimilized Test Structer Array
+/test/[Test_ID] == Get => Get test info with id			Returns Test Structer
+/test == Post => Post test
+/test/[Test_ID]/take == Get => Register student to test
+
+/answer/[Test_ID]/[Answer_ID] == Post => Answer question in test Body => {"Answer": IndexOfAnswer};
+/answer/[Test_ID]/finalize == Get => Finalize test
+
+/quest == Get => Get all quest			Returns Quest Structer Array
+/quest/[Quest_ID] == Get => Get test info with id			Returns Quest Structer
+/quest == Post => Post quest
+/quest/[Quest_ID]/take == Get => Register student to quest
+/quest/[Quest_ID]/finalize == Get => Finalize quest
+
+
+Test Structer:JSON
+{
+	"TestID": String,
+	"TestName": String,
+	"RelevantQuest": [QuestID],
+	"Questions": [
+		[Question Structer], ...
+	],
+	"Creator": [UserID]
+} Example:
+{
+  "TestName":"Test",
+  "Questions": [
+    {
+      "Question": "TestQuestion",
+      "Answers": [
+        "Answer1",
+        "Answer2"
+      ],
+      "RightAnswer": 0
+    }  
+  ]
+}
+
+Minimilized Test Structer:JSON
+{
+	"TestID": String,
+	"TestName": String
+}
+
+Question Structer: JSON
+{
+	"QuestionID" : String,
+	"Question": String,
+	"Answers": [
+		String, ...
+	],
+	"RightAnswer": Integer[Index of answer]
+} Example:
+{
+	"Question": "TestQuestion",
+	"Answers": [
+		"Answer1",
+		"Answer2"
+	],
+	"RightAnswer": 0
+}  
+
+Assigned Test Structer:JSON
+{
+	"TestID": String,
+	"Questions": [
+		[Assigned Test Question Structer], ...
+	],
+	"Score": Float,
+	"IsCompleted": Boolean
+}
+
+Assigned Test Question Structer:JSON
+{
+	"QuestionID" : String,
+	"Question": String,
+		"Answers": [
+		"Answer1",
+		"Answer2"
+	],
+	"ChosenAnswer": Integer[Index of answer]
+}
+
+Quest Structer:JSON
+{
+	"QuestID": String,
+	"QuestName": String,
+	"Creator": [UserID]
+}
+
+Assigned Quest Structer:JSON
+{
+	"QuestID": String,
+	"QuestName": String,
+	"Score": Float,
+	"IsCompleted": Boolean
+}
+
+User Structer:JSON
+{
+	"ID": String(len==32),
+	"Username": String(len > 10 && len < 40),
+	"Password": String(len > 10 && len < 40),
+	"Email": EmailRegex,
+	"AssignedTest": Assigned Test Structer Array,
+	"AssignedQuest": Assigned Quest Structer Array
+}

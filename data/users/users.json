@@ -1,0 +1,52 @@
+[
+  {
+    "username": "1234567890",
+    "password": "1234567890",
+    "email": "a@a.com",
+    "id": "37210cf8ed32f1e917d43ec586001fb41f3e97e89e45c9da",
+    "AssignedTest": [
+      {
+        "TestName": "Test",
+        "Questions": [
+          {
+            "Question": "TestQuestion",
+            "Answers": [
+              "Answer1",
+              "Answer2"
+            ],
+            "QuestionID": "33da6126c9b19c87778defea5861568f2e701b5cac4ffe9a7850efac294488f0",
+            "ChosenAnswer": 0
+          }
+        ],
+        "TestID": "8c3f1173041d38a73ca66d974ab4e806",
+        "Score": 1,
+        "IsCompleted": true
+      },
+      {
+        "TestName": "TestWithQuest",
+        "Questions": [
+          {
+            "Question": "TestQuestion",
+            "Answers": [
+              "Answer1",
+              "Answer2"
+            ],
+            "QuestionID": "3f60b04332348aa10aaa604f686f96d893770bd59213ad8b43522e6cf1f56307",
+            "ChosenAnswer": 0
+          }
+        ],
+        "TestID": "5b98350456778859eac8d7d16734ee37",
+        "Score": 1,
+        "IsCompleted": true
+      }
+    ],
+    "AssignedQuest": [
+      {
+        "QuestName": "testQuest",
+        "QuestID": "b6d534c1b8975e752e87a7f1ff281863",
+        "Score": 1,
+        "IsCompleted": true
+      }
+    ]
+  }
+]
